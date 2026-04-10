@@ -46,7 +46,7 @@ class FingerprintPairDataset(Dataset):
         image_dir = Path(image_dir)
         images    = []
         for ext in ("*.png", "*.bmp", "*.jpg", "*.tif"):
-            images.extend(image_dir.glob(ext))
+            images.extend(image_dir.rglob(ext))
         images = sorted(images)
 
         if not images:

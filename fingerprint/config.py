@@ -40,5 +40,5 @@ CNN_MARGIN          = 1.0      # contrastive loss margin
 CNN_MATCH_THRESHOLD = 0.5      # distance below this = same finger
 
 # Paths
-CNN_MODEL_PATH      = 'models/siamese_model.pth'
+CNN_MODEL_PATH = "/content/drive/MyDrive/fingerprint_project/models/siamese_model.pth"
 CNN_EMBEDDINGS_DIR  = 'dataset/cnn_embeddings'

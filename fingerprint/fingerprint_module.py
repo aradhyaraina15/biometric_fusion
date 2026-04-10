@@ -1,5 +1,4 @@
-from google.colab import drive
-drive.mount('/content/drive')
+import numpy as np
 
 import sys
 import os
@@ -26,7 +25,7 @@ from fingerprint.preprocessor      import FingerprintPreprocessor
 from fingerprint.feature_extractor import FeatureExtractor
 from fingerprint.matcher           import FingerprintMatcher
 from fingerprint.models            import MinutiaePoint, FingerprintResult
-from fingerprint.config            import MATCH_THRESHOLD
+from fingerprint.config import MATCH_THRESHOLD, CNN_MODEL_PATH, CNN_EMBEDDINGS_DIR
 from fingerprint.utils             import setup_logger
 
 logger = setup_logger(__name__)
@@ -51,7 +50,7 @@ class FingerprintModule:
         if use_cnn:
             # CNN path — lazy import so torch is only needed when use_cnn=True
             from .cnn_matcher import CNNMatcher
-            self.cnn_matcher = CNNMatcher(CNN_MODEL_PATH)
+            self.cnn_matcher = CNNMatcher("/content/drive/MyDrive/fingerprint_project/models/siamese_model.pth")
             logger.info("FingerprintModule initialised in CNN mode")
         else:
             # Classical path
